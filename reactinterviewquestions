@@ -45,3 +45,52 @@ const App = () => {
 };
 export default App;
 
+Note- i have written the above code but i have not applied the debouncing in that. the use of debouncing is when you are not using the debouncing there will be 3 api call in everykeystroke but after you applied the debouncing there will be only one api call
+import React, { useState, useEffect } from "react";
+import "./style.css";
+
+const App = () => {
+  const [search, setSearch] = useState("");
+  const [users, setUsers] = useState([]);
+
+  // ------- DEBOUNCING ------
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (search.trim() !== "") {
+        fetchData();
+      }
+    }, 500); // 500ms debounce delay
+
+    return () => clearTimeout(timer);
+  }, [search]);
+
+  const fetchData = async () => {
+    const response = await fetch(
+      `https://dummyjson.com/users/search?q=${search}`
+    );
+    const data = await response.json();
+    setUsers(data.users || []);
+  };
+
+  return (
+    <>
+      <input
+        type="text"
+        placeholder="Search name"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
+      />
+
+      <ul>
+        {users.map((item) => (
+          <li key={item.id}>
+            <p>{item.firstName}</p>
+            <p>{item.lastName}</p>
+          </li>
+        ))}
+      </ul>
+    </>
+  );
+};
+
+export default App;
