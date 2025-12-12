@@ -1,3 +1,7 @@
+Q-1 there are many users are showing i need to fetch the user and display the first name and the last name
+Q-2 use the debouncing in that
+Q-3 what is the lighthouse which shows the react performance and profiling
+
 import React, { useState, useEffect } from 'react';
 import './style.css';
 
