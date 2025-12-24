@@ -68,3 +68,40 @@ for(char of data){
 }
 console.log(freq)
 
+Q.5) count only the vowels and consonants and store in the object [vowels:{vowelscount}, consonant:{consonantCount}]
+let data = "my name is satyendra and i am a full stack developer";
+
+let vowels = ['a','e','i','o','u'];
+
+let freq = { vowels: 0, consonant: 0 };
+
+for (let char of data.toLowerCase()) {
+    if (char === " ") continue;
+
+    if (vowels.includes(char)) {
+        freq.vowels++;
+    } else if (char >= 'a' && char <= 'z') {
+        freq.consonant++;
+    }
+}
+
+console.log(freq);
+
+Q.6) data=[1,2,3,4,5,6,7,8,9,10] separate it in the one object which have even and odd key and store it
+let data = [1,2,3,4,5,6,7,8,9,10];
+
+let result = {
+    even: [],
+    odd: []
+};
+
+for (let num of data) {
+    if (num % 2 === 0) {
+        result.even.push(num);
+    } else {
+        result.odd.push(num);
+    }
+}
+
+console.log(result);
+
