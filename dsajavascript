@@ -30,7 +30,7 @@ for(char of data){
 }
 console.log(freq)
 
-Q.3) count only for the vowels
+Q.3) count the each vowels freq count
 let data = "my name is satyendra and i am a full stack developer"
 
 vowels=['a','e','i','o','u']
@@ -49,7 +49,7 @@ for(char of data){
 }
 console.log(freq)
 
-Q.4) count only for the consonants
+Q.4) count the each consonant freq count
 let data = "my name is satyendra and i am a full stack developer"
 
 vowels=['a','e','i','o','u']
