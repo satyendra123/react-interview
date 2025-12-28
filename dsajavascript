@@ -105,3 +105,14 @@ for (let num of data) {
 
 console.log(result);
 
+Q.7 find the maximum character word in a sentence
+const data = "my name is satyendra and i am a full stack developer"
+
+maxword=""
+const newdata = data.split(" ");
+newdata.map((item,index)=>{
+    if(item.length>maxword.length){
+        maxword=item;
+    }
+})
+console.log(maxword);
