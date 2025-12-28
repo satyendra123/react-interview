@@ -116,3 +116,14 @@ newdata.map((item,index)=>{
     }
 })
 console.log(maxword);
+
+Q.8) convert the sentence in the camelcase
+const data = "my name is satyendra and i am a full stack developer"
+
+const newdata = data.split(" ");
+
+myword = newdata.map((item,index)=>{
+      return item.charAt(0).toUpperCase()+item.slice(1);
+})
+newsentence = myword.join(" ");
+console.log(newsentence);
