@@ -144,3 +144,25 @@ for(let i=new_data.length-1;i>=0;i--){                                          
 console.log(result)
 let new_result = result.join(" ")
 console.log(new_result)
+
+Q.11) i want to make it in the array without using the split function
+const data = "hello world js"
+var result=[]
+words=""
+for (let i = 0; i < data.length; i++) {
+    if(data[i]==" "){
+        if(words!=""){
+            result.push(words);
+            words=""
+        }
+    }
+    else{
+         words+=data[i]
+    }
+}
+  if (words !== "") {
+    result.push(words);
+  }
+
+console.log(result)
+
