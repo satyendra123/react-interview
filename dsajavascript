@@ -132,3 +132,15 @@ console.log(newsentence);                                                       
                                                                                                                              })
                                                                                                                   const newsentence = myword.join(" ");      
                                                                                                                   console.log(newsentence);
+
+Q.9) reverse the words not character                                        Q.10) reverse the character
+const data = "hello world js"                                                    const data = "hello world js"
+new_data = data.split(" ");                                                      var result=""
+const result=[]                                                                  for(i=data.length-1;i>=0;i--){
+console.log(new_data)                                                              result+=data[i]
+for(let i=new_data.length-1;i>=0;i--){                                           }
+    result.push(new_data[i])                                                     console.log(result)
+}
+console.log(result)
+let new_result = result.join(" ")
+console.log(new_result)
