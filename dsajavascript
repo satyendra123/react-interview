@@ -166,3 +166,23 @@ for (let i = 0; i < data.length; i++) {
 
 console.log(result)
 
+Q.12) rearrange the smallest, middle and largest
+const names = ["Alice", "Bob", "Charlie"];
+const heights = [160, 175, 168];
+
+const people = names.map((item,index)=>{
+    return {'name':item, 'height':heights[index]}
+})
+
+console.log(people);
+
+people.sort((a,b)=>a.height - b.height)
+console.log(people)
+
+smallest = people[0].name;
+middle = people[1].name;
+largest = people[2].name;
+
+console.log(smallest);
+console.log(middle);
+console.log(largest);
