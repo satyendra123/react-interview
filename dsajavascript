@@ -187,7 +187,7 @@ console.log(smallest);
 console.log(middle);
 console.log(largest);
 
-Q.13)
+Q.13) write a simple program to check the analogy of the two string
 const checkanalogy = (a, b) => {
     if (a.length !== b.length) return 0;
 
