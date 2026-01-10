@@ -186,3 +186,19 @@ largest = people[2].name;
 console.log(smallest);
 console.log(middle);
 console.log(largest);
+
+Q.13)
+const checkanalogy = (a, b) => {
+    if (a.length !== b.length) return 0;
+
+    for (let i of a) {
+        if (!b.includes(i)) {
+            return 0;
+        } else {
+            continue;
+        }
+    }
+    return 1;
+};
+
+console.log(checkanalogy("listen", "silent"));
