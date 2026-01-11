@@ -1,3 +1,16 @@
+Q.check whether the number or string is palindrome or not
+const data=2345;
+const new_data = data.toString();
+let ispalindrome=false;
+for(i=0;i<new_data.length-1;i++){
+    if(new_data[i]!=new_data[new_data.length-1]){
+        break;
+    }
+    ispalindrome=true;
+}
+
+console.log(ispalindrome ? "Palindrome" : "Not Palindrome");
+
 Q.1) count the freq count of each character
 let data = "my name is satyendra and i am a full stack developer"
 let freq={}
