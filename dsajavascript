@@ -207,3 +207,22 @@ console.log(checkanalogy("listen", "silent"));                                  
                                                                             console.log(checkanalogy("listen", "silent")); 
 
 Note- actually iske pichhe ka logic ye hai ki jaise l hai agar ye mil gya to inner loop ko break kar do wahi pass so abhi i bhi increase ho jayega aur j bhi. so mujhe pta nahi chalega ki kyu increase hua hai loop ke khatam hone se ye gya hai yaa break ki wajah se gya hai. aur mai chahta hu ki agar first letter hi nahi mil rha loop me to usi samay return kar do 0. so hum ek variable lekr rakhte hai taki jb ek loop end ho to mujhe pta chal jaye mila ya nahi. aur agar nahi mila kisi bhi ek loop me to return kar do 0 wahi se
+
+Q. check non repeating character                           (II)                                                     (III) find all the character which comes freq that is also print one time and which not freq that one also
+function checknonrepeatingcharacter(data){                 function checknonrepeatingcharacter(data){               function checknonrepeatingcharacter(data){
+    let found=false;                                        freq={};                                                  freq={};
+for(i=0;i<data.length-1;i++){                                                                                          result=""
+  for(j=1;j<data.length-1;j++){                             for (let i of data) {                                      for (let i of data) {
+      if(data[i]==data[j])                                    if(freq[i]){                                              if(freq[i]){
+      {                                                        freq[i] = (freq[i] || 0) + 1;                            freq[i] = (freq[i] || 0) + 1
+          found=true;                                         }                                                         }
+          break;                                             }                                                         }
+      }                                                     for (let i of data){                                      for (let i in freq){ 
+  }                                                            if (freq[i] === 1) {                                    result+=i;
+  if(!found){                                                    return i;                                             }
+      return                                                   }                                                      return result;
+  }                                                            }                                                     }
+}                                                               return null; 
+}                                                              }
+console.log(checknonrepeatingcharacter("aabbccdde"))         console.log(checknonrepeatingcharacter("aabbccdde"))     console.log(checknonrepeatingcharacter("aabbccdde"))
+o/p- e                                                       o/p-e                                                    o/p- abcde
