@@ -241,3 +241,22 @@ for(i=0;i<data.length-1;i++){                                                   
 }                                                              }
 console.log(checknonrepeatingcharacter("aabbccdde"))         console.log(checknonrepeatingcharacter("aabbccdde"))     console.log(checknonrepeatingcharacter("aabbccdde"))
 o/p- e                                                       o/p-e                                                    o/p- abcde
+
+Q find the union of two lists                               Q find the intersection of two lists
+
+const unionArray = (a,b)=>{                                  const unionArray = (a,b)=>{
+    let result=[];                                             let result=[];
+    for(i of a){                                                for(i of a){
+        if(!result.includes(i)){                                  for(j of b){
+            result.push(i);                                          if(i==j){
+        }                                                               result.push(i);
+    }                                                                 }
+                                                                    }
+    for(i of b){                                                 }
+        if(!result.includes(i)){                                 return result;
+            result.push(i);                                     }
+        }
+    }
+    return result;
+}
+console.log(unionArray([1, 2, 3], [3, 4, 5]));                console.log(unionArray([1, 2, 3,4], [3, 4, 5]));
