@@ -1,15 +1,17 @@
-Q.check whether the number or string is palindrome or not
-const data=2345;
-const new_data = data.toString();
-let ispalindrome=false;
-for(i=0;i<new_data.length-1;i++){
-    if(new_data[i]!=new_data[new_data.length-1]){
-        break;
-    }
-    ispalindrome=true;
-}
-
-console.log(ispalindrome ? "Palindrome" : "Not Palindrome");
+Q.check whether the number or string is palindrome or not        (II)
+const data=2345;                                                     const data = 121;
+const new_data = data.toString();                                    const new_data = data.toString();
+let ispalindrome=false;                                              let ispalindrome = true;
+for(i=0;i<new_data.length-1;i++){                                    for (let i = 0; i < new_data.length; i++) {
+    if(new_data[i]!=new_data[new_data.length-1]){                       for (let j = new_data.length - 1 - i; j >= new_data.length - 1 - i; j--) {
+        break;                                                              if (new_data[i] !== new_data[j]) {
+    }                                                                          ispalindrome = false;
+    ispalindrome=true;                                                           break;
+}                                                                               }
+                                                                             }
+console.log(ispalindrome ? "Palindrome" : "Not Palindrome");               if (!ispalindrome) break;
+                                                                        }
+                                                                      console.log(ispalindrome ? "Palindrome" : "Not Palindrome");
 
 Q.1) count the freq count of each character
 let data = "my name is satyendra and i am a full stack developer"
