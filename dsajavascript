@@ -188,17 +188,22 @@ console.log(middle);
 console.log(largest);
 
 Q.13) write a simple program to check the analogy of the two string
-const checkanalogy = (a, b) => {
-    if (a.length !== b.length) return 0;
+const checkanalogy = (a, b) => {                                         function checkanalogy(a,b){
+    if (a.length !== b.length) return 0;                                      let found=false;
+                                                                             if (a.length !== b.length) return 0;
+    for (let i of a) {                                                        for(i=0;i<a.length-1;i++){
+        if (!b.includes(i)) {                                                     for(j=0;j<b.length-1;j++){
+            return 0;                                                               if(a[i]===b[j]) {
+        } else {                                                                     found=true;
+            continue;                                                                 break;
+        }                                                                            }
+    }                                                                              }
+    return 1;                                                                    if(!found){
+};                                                                                 return 0;
+                                                                                   }
+console.log(checkanalogy("listen", "silent"));                                   }
+                                                                               return 1;
+                                                                             }
+                                                                            console.log(checkanalogy("listen", "silent")); 
 
-    for (let i of a) {
-        if (!b.includes(i)) {
-            return 0;
-        } else {
-            continue;
-        }
-    }
-    return 1;
-};
-
-console.log(checkanalogy("listen", "silent"));
+Note- actually iske pichhe ka logic ye hai ki jaise l hai agar ye mil gya to inner loop ko break kar do wahi pass so abhi i bhi increase ho jayega aur j bhi. so mujhe pta nahi chalega ki kyu increase hua hai loop ke khatam hone se ye gya hai yaa break ki wajah se gya hai. aur mai chahta hu ki agar first letter hi nahi mil rha loop me to usi samay return kar do 0. so hum ek variable lekr rakhte hai taki jb ek loop end ho to mujhe pta chal jaye mila ya nahi. aur agar nahi mila kisi bhi ek loop me to return kar do 0 wahi se
