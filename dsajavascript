@@ -189,16 +189,17 @@ for (let i = 0; i < data.length; i++) {
   }
 
 console.log(result)
-
-Q.12) rearrange the smallest, middle and largest
-const names = ["Alice", "Bob", "Charlie"];
-const heights = [160, 175, 168];
-
-const people = names.map((item,index)=>{
-    return {'name':item, 'height':heights[index]}
-})
-
-console.log(people);
+ 
+Q.12) rearrange the smallest, middle and largest            (II)                                               (iii) const names = ["Alice", "Bob", "Charlie"];
+const names = ["Alice", "Bob", "Charlie"];                      const names = ["Alice", "Bob", "Charlie"];           const heights = [160, 175, 168];        
+const heights = [160, 175, 168];                                const heights = [160, 175, 168];                     const people = {};
+ 
+const people = names.map((item,index)=>{                        for (const [i, name] of names.entries()) {            let index = 0;
+                                                                                                                       for (let name of names) {
+    return {'name':item, 'height':heights[index]}                   people[name] = heights[i];                           people[name] = heights[index];
+})                                                              }                                                      index++;
+                                                                                                                     }
+console.log(people);                                            console.log(people);                                 console.log(people);  
 
 people.sort((a,b)=>a.height - b.height)
 console.log(people)
