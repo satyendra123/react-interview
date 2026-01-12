@@ -120,17 +120,16 @@ for (let num of data) {
 
 console.log(result);
 
-Q.7 find the maximum character word in a sentence
-const data = "my name is satyendra and i am a full stack developer"
-
-maxword=""
-const newdata = data.split(" ");
-newdata.map((item,index)=>{
-    if(item.length>maxword.length){
-        maxword=item;
-    }
-})
-console.log(maxword);
+Q.7 find the maximum character word in a sentence                       (II)
+const data = "my name is satyendra and i am a full stack developer"          const data = "my name is satyendra and i am a full stack developer"
+maxword=""                                                                   const new_data=data.split(' ');
+const newdata = data.split(" ");                                             maxword="" 
+newdata.map((item,index)=>{                                                  for(i of new_data){
+    if(item.length>maxword.length){                                            if(i.length>=max_word.length){
+        maxword=item;                                                            max_word=i
+    }                                                                           }
+})                                                                            }
+console.log(maxword);                                                        console.log(maxword);
 
 Q.8) convert the sentence in the camelcase                                                                     2nd method-
 const data = "my name is satyendra and i am a full stack developer"                                            const data = "my name is satyendra and i am a full stack developer"
