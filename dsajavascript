@@ -149,13 +149,14 @@ console.log(newsentence);                                                       
 (III) using for loop
 const data = "my name is satyendray and i am a full stack developer";
 const words = data.split(" ");
-let camelCase = "";
+let new_word = "";
 
 for (let i = 0; i < words.length; i++) {
   if (i === 0) {
-    camelCase += words[i].toLowerCase();
-  } else {
-    camelCase +=
+    new_word += words[i].toLowerCase();
+  } 
+else {
+    new_word +=
       words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
   }
 }
