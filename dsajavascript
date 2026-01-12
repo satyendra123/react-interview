@@ -13,13 +13,13 @@ console.log(ispalindrome ? "Palindrome" : "Not Palindrome");               if (!
                                                                         }                                                                                             }
                                                                       console.log(ispalindrome ? "Palindrome" : "Not Palindrome");                                  console.log(ispalindrome ? "Palindrome" : "Not Palindrome");
  
-Q.1) count the freq count of each character
-let data = "my name is satyendra and i am a full stack developer"
-let freq={}
-for(char of data){
-    if(freq[char])
-    {
-        freq[char]=freq[char]+1;
+Q.1) count the freq count of each character                            (II)
+let data = "my name is satyendra and i am a full stack developer"         let data = "my name is satyendra and i am a full stack developer"
+let freq={}                                                               let freq={}
+for(char of data){                                                        for(i of data){
+    if(freq[char])                                                          freq[i]=freq[i]+1||1
+    {                                                                      }
+        freq[char]=freq[char]+1;                                          console.log(freq)
     }
     else{
         freq[char]=1;
