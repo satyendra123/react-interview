@@ -64,7 +64,7 @@ for(char of data){                                              for(i of data){
 }
 console.log(freq)
 
-Q.4) count the each consonant freq count
+Q.4) count the each consonant freq count                                    
 let data = "my name is satyendra and i am a full stack developer"
 
 vowels=['a','e','i','o','u']
@@ -84,18 +84,18 @@ for(char of data){
 console.log(freq)
 
 Q.5) count only the vowels and consonants and store in the object [vowels:{vowelscount}, consonant:{consonantCount}]
-let data = "my name is satyendra and i am a full stack developer";
-
-let vowels = ['a','e','i','o','u'];
-
-let freq = { vowels: 0, consonant: 0 };
-
-for (let char of data.toLowerCase()) {
-    if (char === " ") continue;
-
-    if (vowels.includes(char)) {
-        freq.vowels++;
-    } else if (char >= 'a' && char <= 'z') {
+let data = "my name is satyendra and i am a full stack developer";   (II) let data = "my name is satyendra and i am a full stack developer";
+                                                                          vowels="aeiouAEIOU"
+let vowels = ['a','e','i','o','u'];                                       let freq = { vowels: 0, consonant: 0 };
+                                                                          for(i of data){
+let freq = { vowels: 0, consonant: 0 };                                     if(vowels.includes(i)){
+                                                                              freq.vowels+=1;
+for (let char of data.toLowerCase()) {                                       }
+    if (char === " ") continue;                                              else{
+                                                                              freq.consonant+=1;
+    if (vowels.includes(char)) {                                              }
+        freq.vowels++;                                                       }
+    } else if (char >= 'a' && char <= 'z') {                                 console.log(freq);
         freq.consonant++;
     }
 }
