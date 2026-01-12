@@ -29,15 +29,15 @@ console.log(freq)
 
 Q.2) suppose karo ki mujhe '':10 jo aa rha hai iski freq nahi btani hai to mai simply code ko modified kar sakta hu kuch is tarike se
 
-let data = "my name is satyendra and i am a full stack developer"
-let freq={}
-for(char of data){
-    if(char=' '){
-        continue;
-      }
-    else if(freq[char])
-    {
-        freq[char]=freq[char]+1;
+let data = "my name is satyendra and i am a full stack developer"       (II) let data = "my name is satyendra and i am a full stack developer"
+let freq={}                                                                   let freq={}
+for(char of data){                                                            for(i of data){
+    if(char=' '){                                                                 if(i==' '){
+        continue;                                                                    continue;
+      }                                                                             }
+    else if(freq[char])                                                          freq[i]=freq[i]+1||1
+    {                                                                           }
+        freq[char]=freq[char]+1;                                               console.log(freq);
     }
     else{
         freq[char]=1;
@@ -48,14 +48,14 @@ console.log(freq)
 Q.3) count the each vowels freq count
 let data = "my name is satyendra and i am a full stack developer"
 
-vowels=['a','e','i','o','u']
-let freq={}
-for(char of data){
-    if(!vowels.includes(char)){
-        continue;
-    }
-    else if(freq[char])
-    {
+vowels=['a','e','i','o','u']                               (II) vowels=['a','e','i','o','u'] 
+let freq={}                                                     let freq={}
+for(char of data){                                              for(i of data){
+    if(!vowels.includes(char)){                                   if(vowels.includes(i)){
+        continue;                                                    freq[i]=freq[i]+1||1;
+    }                                                               }
+    else if(freq[char])                                           }
+    {                                                            console.log(freq);
         freq[char]=freq[char]+1;
     }
     else{
