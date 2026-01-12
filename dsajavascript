@@ -147,22 +147,14 @@ console.log(newsentence);                                                       
                                                                                                                   const newsentence = myword.join(" ");      
                                                                                                                   console.log(newsentence);
 (III) using for loop
-const data = "my name is satyendray and i am a full stack developer";
+const data = "my Name is Satyendray and i am a full stack developer";
 const words = data.split(" ");
 let new_word = "";
 
-for (let i = 0; i < words.length; i++) {
-  if (i === 0) {
-    new_word += words[i].toLowerCase();
-  } 
-else {
-    new_word +=
-      words[i].charAt(0).toUpperCase() + words[i].slice(1).toLowerCase();
+for (let i of words) {
+    new_word += i.charAt(0).toUpperCase() + i.slice(1).toLowerCase()+" ";
   }
-}
-console.log(camelCase);
-
-
+console.log(new_word);
 
 
 Q.9) reverse the words not character                                        Q.10) reverse the character
