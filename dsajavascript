@@ -1,12 +1,12 @@
 Q.check whether the number or string is palindrome or not        (II)                                                                                          (III) const data = 121;      
 const data=2345;                                                     const data = 121;                                                                               let temp = data;
 const new_data = data.toString();                                    const new_data = data.toString();                                                                let rev = 0;
-let ispalindrome=false;                                              let ispalindrome = true;                                                                         while (temp > 0) {
-for(i=0;i<new_data.length-1;i++){                                    for (let i = 0; i < new_data.length; i++) {                                                         let digit = temp % 10;
-    if(new_data[i]!=new_data[new_data.length-1]){                       for (let j = new_data.length - 1 - i; j >= new_data.length - 1 - i; j--) {                       rev = rev * 10 + digit;
-        break;                                                              if (new_data[i] !== new_data[j]) {                                                           temp = Math.floor(temp / 10);
-    }                                                                          ispalindrome = false;                                                                   }
-    ispalindrome=true;                                                           break;                                                                                if (data === rev) {
+let ispalindrome=true;                                              let ispalindrome = true;                                                                         while (temp > 0) {
+for(i=0;i<str.length / 2;i++){                                    for (let i = 0; i < new_data.length; i++) {                                                         let digit = temp % 10;
+    if (str[i] !== str[str.length - 1 - i]){                       for (let j = new_data.length - 1 - i; j >= new_data.length - 1 - i; j--) {                       rev = rev * 10 + digit;
+        ispalindrome=false;                                              if (new_data[i] !== new_data[j]) {                                                           temp = Math.floor(temp / 10);
+        break;                                                               sispalindrome = false;                                                                   }
+     }                                                                       break;                                                                                if (data === rev) {
 }                                                                               }                                                                                        console.log("Palindrome");
                                                                              }                                                                                         } else {
 console.log(ispalindrome ? "Palindrome" : "Not Palindrome");               if (!ispalindrome) break;                                                                   console.log("Not Palindrome");
