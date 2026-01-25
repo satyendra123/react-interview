@@ -270,3 +270,20 @@ const unionArray = (a,b)=>{                                  const unionArray = 
     return result;
 }
 console.log(unionArray([1, 2, 3], [3, 4, 5]));                console.log(unionArray([1, 2, 3,4], [3, 4, 5]));
+
+Q find the second largest
+// find the second largenst
+const data = [23,45,67,12,5]
+let max=data[0];
+let second_largest=0;
+for(i=0;i<data.length-1;i++){
+    if(data[i]>max){
+        second_largest=max;
+        max=data[i]
+    }
+    else if(data[i]>second_largest && data[i]!==max){
+        second_largest=data[i]
+    }
+}
+console.log(max)
+console.log(second_largest)
