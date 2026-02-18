@@ -212,6 +212,27 @@ console.log(smallest);
 console.log(middle);
 console.log(largest);
 
+Q let l1 = ["satyendra", "sandeep", "raghav"];
+let l2 = [134, 342, 159];
+
+let newdata = {};
+
+for (let i in l1) {
+  let k = l1[i];
+  newdata[k] = l2[i];
+}
+
+console.log(newdata);
+
+let sorted = Object.entries(newdata).sort((a, b) => a[1] - b[1]);
+let shortest = sorted[0][0];
+let middle   = sorted[1][0];
+let tallest  = sorted[2][0];
+
+console.log("Shortest:", shortest);
+console.log("Middle:", middle);
+console.log("Tallest:", tallest);
+
 Q.13) write a simple program to check the analogy of the two string
 const checkanalogy = (a, b) => {                                         function checkanalogy(a,b){
     if (a.length !== b.length) return 0;                                      let found=false;
