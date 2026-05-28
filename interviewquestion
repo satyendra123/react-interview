@@ -1,0 +1,11 @@
+1) traffic light
+2) pagination (use the data.slice(firstindex,lastindex))
+3) searching the data based on static data  (data.filter)
+3) debouncing 
+4) throttling
+5) crud operation completely
+6) otp
+7) custom map function
+8)
+9)
+10)
