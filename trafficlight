@@ -1,0 +1,27 @@
+import {useState,useEffect} from 'react'
+const App = () =>{
+  const [color, setColor] = useState("red");
+  useEffect(()=>{
+    const timer = setInterval(()=>{
+      if(color === "red"){
+        setColor("yellow")
+      }
+      else if(color === "yellow"){
+        setColor("green")
+      }
+      else{
+        setColor("red")
+      }
+    },1000)
+    return ()=> clearInterval(timer)
+  },[color])
+  
+  return(
+    <>
+      <div style={{backgroundColor:color ==='red'?'red' : 'grey',height:'50px', width:'50px', borderRadius:'100%', marginBottom:'10px'}}></div>
+           <div style={{backgroundColor:color ==='yellow'?'yellow' : 'grey',height:'50px', width:'50px', borderRadius:'100%',marginBottom:'10px'}}></div>
+           <div style={{backgroundColor:color ==='green'?'green' : 'grey',height:'50px', width:'50px', borderRadius:'100%'}}></div>
+    </>
+  )
+}
+export default App
