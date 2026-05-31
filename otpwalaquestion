@@ -1,0 +1,114 @@
+import { useRef, useState } from "react";
+
+const App = () => {
+
+  const [otp, setOtp] = useState({
+    input1: "",
+    input2: "",
+    input3: "",
+    input4: ""
+  });
+
+  const input1Ref = useRef();
+  const input2Ref = useRef();
+  const input3Ref = useRef();
+  const input4Ref = useRef();
+
+  const handleChange = (e, inputName, nextRef) => {
+
+    const value = e.target.value;
+
+    // only one digit allowed
+    if (value.length > 1) {
+      return;
+    }
+
+    setOtp({
+      ...otp,
+      [inputName]: value
+    });
+
+    // move to next input automatically
+    if (value !== "" && nextRef) {
+      nextRef.current.focus();
+    }
+  };
+
+  return (
+    <>
+      <h1>OTP validation</h1>
+
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "20px"
+        }}
+      >
+        <input
+          ref={input1Ref}
+          type="number"
+          value={otp.input1}
+          style={{
+            height: "30px",
+            width: "40px",
+            borderRadius: "5px",
+            textAlign: "center"
+          }}
+          onChange={(e) =>
+            handleChange(e, "input1", input2Ref)
+          }
+        />
+
+        <input
+          ref={input2Ref}
+          type="number"
+          value={otp.input2}
+          style={{
+            height: "30px",
+            width: "40px",
+            borderRadius: "5px",
+            textAlign: "center"
+          }}
+          onChange={(e) =>
+            handleChange(e, "input2", input3Ref)
+          }
+        />
+
+        <input
+          ref={input3Ref}
+          type="number"
+          value={otp.input3}
+          style={{
+            height: "30px",
+            width: "40px",
+            borderRadius: "5px",
+            textAlign: "center"
+          }}
+          onChange={(e) =>
+            handleChange(e, "input3", input4Ref)
+          }
+        />
+
+        <input
+          ref={input4Ref}
+          type="number"
+          value={otp.input4}
+          style={{
+            height: "30px",
+            width: "40px",
+            borderRadius: "5px",
+            textAlign: "center"
+          }}
+          onChange={(e) =>
+            handleChange(e, "input4", null)
+          }
+        />
+      </div>
+
+    </>
+  );
+};
+
+export default App;
