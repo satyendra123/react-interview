@@ -1,0 +1,103 @@
+import { useState, useEffect } from "react";
+
+const App = () => {
+  const [data, setData] = useState([
+    { name: "A", age: 25, address: "madhaya pradesh" },
+    { name: "B", age: 26, address: "uttar pradesh" },
+    { name: "C", age: 27, address: "jaipur" },
+    { name: "D", age: 28, address: "bihar" },
+    { name: "E", age: 29, address: "gujrat" },
+  ]);
+
+  const [formdata, setFormdata] = useState({
+    name: "",
+    age: "",
+    address: "",
+  });
+
+  const handleChange = (e) => {
+    const name = e.target.name;
+    const value = e.target.value;
+    setFormdata({
+      ...formdata,
+      [name]: value,
+    });
+  };
+
+  const handleAdd = () => {
+    setData([...data, formdata]);
+    setFormdata({ name: "", age: "", address: "" });
+  };
+
+  return (
+    <>
+      <h1>performing crud operation</h1>
+
+      <input
+        type="text"
+        name="name"
+        value={formdata.name}
+        onChange={handleChange}
+        placeholder="enter your name"
+        style={{ marginRight: "10px" }}
+      />
+      <input
+        type="text"
+        name="age"
+        value={formdata.age}
+        onChange={handleChange}
+        placeholder="enter your age"
+        style={{ marginRight: "10px" }}
+      />
+      <input
+        type="text"
+        name="address"
+        value={formdata.address}
+        placeholder="enter your address"
+        onChange={handleChange}
+        style={{ marginRight: "10px" }}
+      />
+
+      <button onClick={handleAdd} style={{ marginRight: "10px" }}>
+        ADD
+      </button>
+
+      <table
+        style={{
+          width: "100%",
+          borderCollapse: "collapse",
+          tableLayout: "fixed",
+          textAlign: "center",
+          marginTop: "10px",
+        }}
+      >
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>address</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((item, index) => {
+            return (
+              <tr key={index}>
+                <td>{index}</td>
+                <td>{item.name}</td>
+                <td>{item.age}</td>
+                <td>{item.address}</td>
+                <td>
+                  <button style={{ marginRight: "10px" }}>Edit</button>
+                  <button style={{ marginRight: "10px" }}>Delete</button>
+                </td>
+              </tr>
+            );
+          })}
+        </tbody>
+      </table>
+    </>
+  );
+};
+export default App;
