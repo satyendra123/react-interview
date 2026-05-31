@@ -1,3 +1,8 @@
+ADD => so ADD functionality kaise work karta hai ki humare formdata me data store hai so hum handleADD me simply kya karenge ki jo mera data hai wo to rhega ki aaur uske sath mera formData bhi aa jayega so
+handleAdd = () =>{
+   setData({...data, formData})
+}
+
 import { useState, useEffect } from "react";
 
 const App = () => {
@@ -27,7 +32,12 @@ const App = () => {
   const handleAdd = () => {
     setData([...data, formdata]);
     setFormdata({ name: "", age: "", address: "" });
-  };
+  }
+
+  const handleDelete = (index) =>{
+      
+    }
+};
 
   return (
     <>
@@ -90,7 +100,7 @@ const App = () => {
                 <td>{item.address}</td>
                 <td>
                   <button style={{ marginRight: "10px" }}>Edit</button>
-                  <button style={{ marginRight: "10px" }}>Delete</button>
+                  <button onClick={()=>{handleDelete(index)}} style={{ marginRight: "10px" }}>Delete</button>
                 </td>
               </tr>
             );
