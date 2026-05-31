@@ -1,0 +1,47 @@
+note- isme hum sikhenge ki data ko delete kaise kiya jata hai. so delete karne ke liye hum sirf itna karte hai ki us id ko hatakar baki sare data ko filter out kar lete hai filter ka use karke aur data ko update kar dete hai
+import { useState, useEffect } from "react";
+const App = () => {
+  const [data, setData] = useState([
+    { name: "satyendra", age: 25 },
+    { name: "taj", age: 26 },
+    { name: "vikki", age: 27 },
+    { name: "satyam", age: 28 },
+    { name: "rupesh", age: 29 },
+  ]);
+
+  const handleDelete = (id) => {
+    const updatedData = data.filter((item, index) => {
+      return index !== id;
+    });
+    setData(updatedData);
+  };
+
+  return (
+    <>
+      <h1>crud operation</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>name</th>
+            <th>age</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {data.map((user, index) => (
+            <tr key={index}>
+              <td>{index}</td>
+              <td>{user.name}</td>
+              <td>{user.age}</td>
+              <td>
+                <button onClick={() => handleDelete(index)}>delete</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
+};
+export default App;
