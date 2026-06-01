@@ -1,4 +1,5 @@
 import { useState, useRef } from "react";
+
 const App = () => {
   const [otp, setOtp] = useState({
     input1: "",
@@ -24,26 +25,40 @@ const App = () => {
       return;
     }
 
-    if (data == "input1") {
-      input2ref.current.focus();
-    }
-
-    else if (data == "input2") {
-      input3ref.current.focus();
-    }
-    else if(data == "input3") {
-      input4ref.current.focus();
-    }
-    else{
-      input4ref.current.focus();
-    }
-
     setOtp({ ...otp, [data]: value });
+
+    // NEXT AUTO FOCUS
+    if (value !== "") {
+      if (data == "input1") {
+        input2ref.current.focus();
+      } else if (data == "input2") {
+        input3ref.current.focus();
+      } else if (data == "input3") {
+        input4ref.current.focus();
+      }
+    }
+  };
+
+  // BACKSPACE LOGIC
+  const handleKeyDown = (e) => {
+    const data = e.target.name;
+    const value = e.target.value;
+
+    if (e.key === "Backspace" && value === "") {
+      if (data === "input2") {
+        input1ref.current.focus();
+      } else if (data === "input3") {
+        input2ref.current.focus();
+      } else if (data === "input4") {
+        input3ref.current.focus();
+      }
+    }
   };
 
   return (
     <>
       <h1>OTP VALIDATION</h1>
+
       <div
         style={{
           display: "flex",
@@ -65,7 +80,9 @@ const App = () => {
             border: "2px solid black",
           }}
           onChange={handleOnchange}
+          onKeyDown={handleKeyDown}
         />
+
         <input
           type="text"
           name="input2"
@@ -79,7 +96,9 @@ const App = () => {
             border: "2px solid black",
           }}
           onChange={handleOnchange}
+          onKeyDown={handleKeyDown}
         />
+
         <input
           type="text"
           name="input3"
@@ -93,7 +112,9 @@ const App = () => {
             border: "2px solid black",
           }}
           onChange={handleOnchange}
+          onKeyDown={handleKeyDown}
         />
+
         <input
           type="text"
           name="input4"
@@ -107,10 +128,13 @@ const App = () => {
             border: "2px solid black",
           }}
           onChange={handleOnchange}
+          onKeyDown={handleKeyDown}
         />
       </div>
+
       <p>{JSON.stringify(otp)}</p>
     </>
   );
 };
+
 export default App;
