@@ -1,0 +1,66 @@
+import { useState } from "react";
+const App = () => {
+  const [selectedFruits, setSelectedFruits] = useState([]);
+
+   const handleChange = (e) => {
+    const data = e.target.value;
+    const status = e.target.checked;
+
+    if (status) {
+      setSelectedFruits((prev) => [...prev, data]);
+    } else {
+      setSelectedFruits((prev) =>
+        prev.filter((item) => item !== data)
+      );
+    }
+  };
+
+  return (
+    <>
+      <h1>multi select input</h1>
+      <p>choose fruit</p>
+      <p>
+        <input
+          type="checkbox"
+          value="apple"
+          name="fruit"
+          onChange={handleChange}
+        />
+        apple
+      </p>
+      <p>
+        <input
+          type="checkbox"
+          value="banana"
+          name="fruit"
+          onChange={handleChange}
+        />
+        banana
+      </p>
+      <p>
+        <input
+          type="checkbox"
+          value="grapes"
+          name="fruit"
+          onChange={handleChange}
+        />
+        grapes
+      </p>
+      <p>
+        <input
+          type="checkbox"
+          value="orange"
+          name="fruit"
+          onChange={handleChange}
+        />
+        orange
+      </p>
+
+      <p>selected fruits are</p>
+      {selectedFruits.map((item, index) => (
+        <p key={index}>{item}</p>
+      ))}
+    </>
+  );
+};
+export default App;
