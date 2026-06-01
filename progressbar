@@ -1,9 +1,12 @@
 const App = () =>{
-  const progress=100
+  
+  const progress=90
+
   return(
     <>
       <div style={{height:'30px', width:'200px', border:'1px solid black', borderRadius:'20px 20px 20px 20px',overflow: "hidden"}}>
         <div style={{backgroundColor:'green', height:'100%', position:'relative', width:`${progress}%`}}>
+          <p style={{position:'absolute',top:'-10px',left:'100px'}}>{progress}</p>
         </div>
       </div>
     </>
