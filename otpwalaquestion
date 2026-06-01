@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 const App = () => {
   const [otp, setOtp] = useState({
     input1: "",
@@ -6,6 +6,11 @@ const App = () => {
     input3: "",
     input4: "",
   });
+
+  const input1ref = useRef();
+  const input2ref = useRef();
+  const input3ref = useRef();
+  const input4ref = useRef();
 
   const handleOnchange = (e) => {
     const data = e.target.name;
@@ -17,6 +22,20 @@ const App = () => {
 
     if (value.length > 1) {
       return;
+    }
+
+    if (data == "input1") {
+      input2ref.current.focus();
+    }
+
+    else if (data == "input2") {
+      input3ref.current.focus();
+    }
+    else if(data == "input3") {
+      input4ref.current.focus();
+    }
+    else{
+      input4ref.current.focus();
     }
 
     setOtp({ ...otp, [data]: value });
@@ -36,6 +55,7 @@ const App = () => {
         <input
           type="text"
           name="input1"
+          ref={input1ref}
           value={otp.input1}
           maxLength={1}
           style={{
@@ -49,6 +69,7 @@ const App = () => {
         <input
           type="text"
           name="input2"
+          ref={input2ref}
           value={otp.input2}
           maxLength={1}
           style={{
@@ -62,6 +83,7 @@ const App = () => {
         <input
           type="text"
           name="input3"
+          ref={input3ref}
           value={otp.input3}
           maxLength={1}
           style={{
@@ -75,6 +97,7 @@ const App = () => {
         <input
           type="text"
           name="input4"
+          ref={input4ref}
           value={otp.input4}
           maxLength={1}
           style={{
