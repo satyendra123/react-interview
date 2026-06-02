@@ -201,3 +201,43 @@ const handlekeypress = (e, index) => {
 };
 export default App;
 
+Note- Bahut achha question hai. Ye samajh jaoge to useRef([]) ka concept clear ho jayega.
+
+Agar tum manually 4 refs banao:
+
+const inputRef1 = useRef();
+const inputRef2 = useRef();
+const inputRef3 = useRef();
+const inputRef4 = useRef();
+
+Aur inputs me:
+
+<input ref={inputRef1} />
+<input ref={inputRef2} />
+<input ref={inputRef3} />
+<input ref={inputRef4} />
+
+To React automatically DOM elements assign kar deta hai:
+
+inputRef1.current = firstInputElement;
+inputRef2.current = secondInputElement;
+inputRef3.current = thirdInputElement;
+inputRef4.current = fourthInputElement;
+
+Bahut repetitive code ho jayega. Isliye hum ek hi ref banate hain:
+
+const inputRef = useRef([]);
+
+Ab ye sirf ek object hai:
+
+inputRef = {
+  current: []
+}
+
+Initially:
+
+inputRef.current = [];
+
+Jab first input render hota hai:
+
+ref={(el) => (inputRef.current[0] = el)}
