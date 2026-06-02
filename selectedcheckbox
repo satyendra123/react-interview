@@ -8,10 +8,13 @@ const App = () => {
 
     if (status) {
       setSelectedFruits((prev) => [...prev, data]);
-    } else {
-      setSelectedFruits((prev) =>
-        prev.filter((item) => item !== data)
-      );
+    } 
+
+else {
+      const filterFruits = selectedFruits.filter((fruit) => {
+        return fruit != data;
+      });
+      setSelectedFruits(filterFruits);
     }
   };
 
