@@ -144,39 +144,33 @@ note- the above approach is not that much scalable. instead of that use this met
 import { useState, useRef } from "react";
 
 const App = () => {
-  const [otp, setOtp] = useState(["", "", "", ""]);
-  const inputRef = useRef([]);
+const [otp,setOtp] = useState(["", "", "", ""]);
+
+  const inputRefs = useRef([]);
 
   const handleChange = (e, index) => {
     const value = e.target.value;
-
-    // allow only single digit
     if (!/^[0-9]?$/.test(value)) {
       return;
     }
+    const newarr = [...otp];
+    newarr[index] = value;
+    setOtp(newarr);
 
-    const newOtp = [...otp];
-    newOtp[index] = value;
-
-    setOtp(newOtp);
-
-    // move to next input
     if (value && index < otp.length - 1) {
-      inputRef.current[index + 1].focus();
+      inputRefs.current[index + 1].focus();
     }
   };
 
-  const handlekeypress = (e, index) => {
-    // move back on backspace
-    if (e.key === "Backspace" && !otp[index] && index > 0) {
-      inputRef.current[index - 1].focus();
-    }
-  };
+const handlekeypress = (e, index) => {
+  if (e.key === "Backspace" && otp[index] === "" && index > 0) {
+    inputRefs.current[index - 1].focus();
+  }
+};
 
   return (
     <>
       <h1>OTP VERIFICATION</h1>
-
       <div
         style={{
           display: "flex",
@@ -185,28 +179,25 @@ const App = () => {
           gap: "10px",
         }}
       >
-        {[0, 1, 2, 3].map((item, index) => (
+        {[1, 2, 3, 4].map((item, index) => (
           <input
             key={index}
-            ref={(el) => (inputRef.current[index] = el)}
             type="text"
             maxLength={1}
-            value={otp[index]}
-            style={{
-              height: "30px",
-              width: "45px",
-              textAlign: "center",
-              fontSize: "20px",
+            ref={(el) => (inputRefs.current[index] = el)}
+            
+        style={{ height: "30px", width: "45px" }}
+        onChange={(e) => {
+              handleChange(e, index);
             }}
-            onChange={(e) => handleChange(e, index)}
-            onKeyDown={(e) => handlekeypress(e, index)}
+            onKeyDown={(e) => {
+              handlekeypress(e, index);
+            }}
           />
         ))}
       </div>
-
-      <h2>OTP: {otp.join("")}</h2>
     </>
   );
 };
-
 export default App;
+
