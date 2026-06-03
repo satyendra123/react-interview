@@ -1,11 +1,11 @@
 1) traffic light
 2) pagination (use the data.slice(firstindex,lastindex))
 3) searching the data based on static data  (data.filter)
-3) debouncing 
+3) debouncing (with search and api calling)
 4) throttling
 5) crud operation completely
-6) otp
+6) otp ()
 7) custom map function
-8)
-9)
-10)
+8) todo app
+9) select multiple checkbox ( display the selected values)
+10) custom hook (made a useFetch api which controls the data, loading and error)
