@@ -1,0 +1,81 @@
+import { useState } from "react";
+
+const App = () => {
+  const [todo, setTodo] = useState([]);
+  const [data, setData] = useState("");
+
+  const now = new Date();
+  const datetime = now.toLocaleDateString();
+
+  const date = new Date().toLocaleDateString();
+  const newtime = new Date().toLocaleTimeString();
+
+  const handleOnChange = (e) => {
+    const value = e.target.value;
+    setData(value);
+  };
+
+  const handleEdit = (e, i) => {
+       setData(todo[i])
+  };
+  
+  const handleDelete = (e, i) => {
+    const filterdata = todo.filter((item, index) => {
+      return i !== index;
+    });
+    setTodo(filterdata);
+  };
+
+  const handleAdd = (e) => {
+    setTodo([...todo, data]);
+  };
+
+  return (
+    <>
+      <h1>My ToDo App</h1>
+      <div style={{ display: "flex", gap: "10px" }}>
+        <input
+          type="text"
+          placeholder="enter your to do"
+          style={{ height: "20px", width: "250px", border: "1px solid black" }}
+          value={data}
+          onChange={handleOnChange}
+        />
+        <button onClick={handleAdd}>ADD</button>
+      </div>
+
+      <p>shows complete data</p>
+
+      <table style={{}}>
+        <thead>
+          <tr>
+            <th>index</th>
+            <th>todo</th>
+            <th>action</th>
+          </tr>
+        </thead>
+        <tbody>
+          {todo.map((item, index) => (
+            <tr key={index}>
+              <td>{index}</td>
+              <td>{item}</td>
+              <td>
+                <button onClick={(e) => {
+                    handleEdit(e, index);
+                  }}>Edit</button>
+                <button
+                  onClick={(e) => {
+                    handleDelete(e, index);
+                  }}
+                >
+                  delete
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </>
+  );
+};
+export default App;
