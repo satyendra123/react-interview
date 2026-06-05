@@ -1,0 +1,73 @@
+also give me sliding window type question
+
+The sliding window pattern is closely related to two pointers. Instead of moving two pointers independently, you maintain a window (a subarray or substring) and expand or shrink it to satisfy a condition.
+
+1. Maximum Sum Subarray of Size K
+Problem
+
+Given an array and a window size k, find the maximum sum of any contiguous subarray of size k.
+
+Time Complexity: O(n)
+
+2. Longest Substring Without Repeating Characters
+Problem
+
+Find the length of the longest substring without repeating characters.
+
+Window: always contains unique characters.
+
+3. Minimum Size Subarray Sum
+Problem
+
+Find the smallest length of a contiguous subarray whose sum is greater than or equal to target.
+
+Key idea: Expand until valid, then shrink to find the minimum window.
+
+4. Longest Subarray with Sum ≤ K
+Problem
+5. Count Occurrences of Anagrams
+Problem
+
+Given a text and a pattern, count how many substrings of the text are anagrams of the pattern.
+
+6. Fruit Into Baskets (At Most 2 Distinct)
+Problem
+
+Find the longest subarray containing at most 2 distinct numbers.
+
+7. Longest Repeating Character Replacement
+Problem
+
+Replace at most k characters to make the longest substring with the same character.
+
+Sliding Window Template (Variable Size)
+
+Expand: move right
+
+Shrink: move left
+
+Maintain condition: uniqueness, sum limit, distinct count, frequency constraint, etc.
+
+Most Important Sliding Window Interview Problems
+
+Maximum Sum Subarray of Size K
+
+Longest Substring Without Repeating Characters
+
+Minimum Window Substring
+
+Fruit Into Baskets
+
+Longest Repeating Character Replacement
+
+Minimum Size Subarray Sum
+
+Permutation in String
+
+Find All Anagrams in a String
+
+Longest Subarray with At Most K Distinct
+
+Sliding Window Maximum (deque based, advanced)
+
+A useful rule of thumb: if the problem mentions contiguous subarray, substring, window size, or at most/exactly k, think sliding window first.
