@@ -1,3 +1,8 @@
+What is Reconciliation?
+
+Reconciliation is the process React uses to compare the old Virtual DOM with the new Virtual DOM and determine what has changed. 
+React then updates only the necessary parts of the actual DOM instead of re-rendering everything.
+
 1) traffic light
 2) pagination (use the data.slice(firstindex,lastindex))
 3) searching the data based on static data  (data.filter)
