@@ -26,3 +26,42 @@ app.get('/get_user', async (req, res) => {
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
 });
+
+Q.2 what is stream
+What is process.nextTick() and setImmediate()?
+
+Both are used to schedule code execution asynchronously, but they run at different stages of the Event Loop.
+1. process.nextTick()
+
+It executes the callback immediately after the current operation completes, before the event loop continues.
+
+console.log("Start");
+
+process.nextTick(() => {
+    console.log("nextTick");
+});
+
+console.log("End");
+
+Output:
+
+Start
+End
+nextTick
+
+2. setImmediate()
+
+It executes the callback during the Check Phase of the Event Loop.
+
+console.log("Start");
+
+setImmediate(() => {
+    console.log("setImmediate");
+});
+
+console.log("End");
+
+Output:
+Start
+End
+setImmediate
