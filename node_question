@@ -28,7 +28,51 @@ app.listen(port, () => {
 });
 
 Q.2 what is stream
-What is process.nextTick() and setImmediate()?
+Q.2 What is a Stream in Node.js?
+
+A Stream is an object that allows you to read or write data continuously in small chunks instead of loading the entire data into memory at once.
+
+For example, if you have a 2GB video file:
+
+❌ Without streams:
+
+fs.readFile('video.mp4', (err, data) => {
+    console.log(data);
+});
+
+The entire file is loaded into memory.
+
+✅ With streams:
+
+import fs from 'fs';
+
+const readStream = fs.createReadStream('video.mp4');
+
+readStream.on('data', (chunk) => {
+    console.log('Received chunk:', chunk.length);
+});
+
+The file is read piece by piece, which is much more memory-efficient.
+
+Types of Streams
+
+Readable Stream – Read data
+
+fs.createReadStream('file.txt');
+
+Writable Stream – Write data
+
+fs.createWriteStream('output.txt');
+
+Duplex Stream – Read and Write
+
+const socket = net.createConnection();
+
+Transform Stream – Modify data while reading/writing
+
+import zlib from 'zlib';
+const gzip = zlib.createGzip();
+Q.3 What is process.nextTick() and setImmediate()?
 
 Both are used to schedule code execution asynchronously, but they run at different stages of the Event Loop.
 1. process.nextTick()
